@@ -1,0 +1,17 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=380
+
+Basically, does a  g}  command to bring up the tag in the preview window.  
+Next, it looks at the located tag, and based on what it looks like adjusts the preview window height and posistions the file in the preview window so that the "entire" tag is shown -- in the case of a structure, the "entire" tag includes the opening brace through the closing brace.  That's where the style used can have an effect.  We use the style:                                            
+                                                                              
+     typedef struct foo {                                                     
+          int   member1;                                                      
+          long  member2;                                                      
+     } FooType;                                                               
+                                                                              
+So, including the line having the opening brace through the line having the   
+closing brace shows the entire type.                                          
+                                                                              
+If it doesn't work with your style, it should only take some minor tweaks to  
+the patterns used to identify different tags to treat specially.
+
+If the tag isn't recognized as "special", the tag is previewed "normally" (i.e., whatever g} does normally, based on your vim settings.
